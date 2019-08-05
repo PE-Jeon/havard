@@ -1,6 +1,23 @@
 import React from 'react'
-import {Text} from 'react-native'
+import {Text, StyleSheet} from 'react-native'
+import PropTypes from 'prop-types'
 
-export const Count = props => (
-    <Text>{props.count}</Text>
-)
+const styles = StyleSheet.create({
+    text: {fontSize: 72},
+})
+
+export const Num = 50
+
+class Count extends React.Component {
+    static propTypes = {
+        count: PropTypes.number.isRequired
+    }
+    
+    render() {
+        return (
+            <Text style={styles.text}>{this.props.count}</Text>
+        )
+    }
+}
+
+export default Count 

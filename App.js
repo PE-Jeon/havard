@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Count} from './Count.js'
+import CustomCount from './Count.js'
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Count count={0}/>
+        <CustomCount count={0} />
       </View>
     );
-  }
+  } 
 }
 
 const styles = StyleSheet.create({
