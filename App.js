@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default class App extends React.Component {
+class Counter extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -36,6 +36,14 @@ export default class App extends React.Component {
       <View style={styles.appContainer}>
         <Text style={styles.count}>{this.state.count}</Text>
       </View>
+    )
+  }
+}
+
+export default class App extends React.Component { 
+  render() {
+    return (
+      <Counter />
     )
   }
 }
