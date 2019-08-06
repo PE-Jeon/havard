@@ -1,22 +1,29 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import CustomCount from './Count.js'
+import React from 'react';
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {Constants} from 'expo'
 
-export default class App extends Component {
+import contacts from './contacts'
+
+export default class App extends React.Component {
+  state = {
+    showContacts: false,
+  }
+
+  toggleContacts = () => {
+    this.setState(prevState => ({ showContacts: !prevState.showContacts }))
+  }
+
+
   render() {
     return (
-      <View style={styles.container}>
-        <CustomCount count={0} />
+      <View>
+        <Button title="toggle contacts" onPress={this.toggleContacts}></Button>
+        <View>
+          {contacts.map(contact => (
+            <Text>{contact.name}</Text>
+          ))}
+        </View>
       </View>
-    );
-  } 
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor : '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    )
   }
-});
+}
